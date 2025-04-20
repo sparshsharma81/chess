@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #222;
+        }
+
+        #myBoard {
+            width: 700px;
+            max-width: 95vw;
+            margin: 30px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info {
+            margin-top: 10px;
+            text-align: left;
+            width: 700px;
+            max-width: 95vw;
+        }
+
+        .info label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .info div {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            min-height: 30px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Online Chess Game</h2>
+
+    <div id="myBoard"></div>
+
+    <div class="info">
+        <label>Status:</label>
+        <div id="status">Waiting for move...</div>
+
+        <label>PGN:</label>
+        <div id="pgn">N/A</div>
+    </div>
+
+    <script>
+        let playerColor = '{{color}}';
+        console.log('Playing as ' + playerColor);
+    </script>
+    <script src="/public/js/index.js"></script>
+
+</body>
+</html>

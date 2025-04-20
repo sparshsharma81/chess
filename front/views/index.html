@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game Lobby</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #222;
+        }
+
+        #codeInput {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #errorMessage {
+            margin-top: 15px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Join or Create a Chess Game</h2>
+
+    <input type="text" id="codeInput" placeholder="Enter Game Code">
+
+    <div>
+        <button id="createGame">Create Game</button>
+        <button id="joinGame">Join Game</button>
+    </div>
+
+    <div id="errorMessage"></div>
+
+    <script>
+        document.getElementById('createGame').addEventListener('click', function () {
+            const code = document.getElementById('codeInput').value.trim();
+            if (code) {
+                window.location.replace('/white?code=' + encodeURIComponent(code));
+            }
+        });
+
+        document.getElementById('joinGame').addEventListener('click', function () {
+            const code = document.getElementById('codeInput').value.trim();
+            if (code) {
+                window.location.replace('/black?code=' + encodeURIComponent(code));
+            }
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === 'invalidCode') {
+            document.getElementById('errorMessage').textContent = 'Invalid invite code';
+        }
+    </script>
+</body>
+</html>
