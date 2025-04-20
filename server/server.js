@@ -12,8 +12,9 @@ const myIo = require('./sockets/io'),
 const app = express(),
       server = http.Server(app),
       io = socket(server);
+      
 
-server.listen(config.port);
+// server.listen(config.port);
 
 games = {};
 
@@ -33,3 +34,4 @@ app.set('views', path.join(__dirname, '..', 'front', 'views'));
 app.use('/public', express.static(path.join(__dirname, '..', 'front', 'public')));
 
 routes(app);
+module.exports = app;
