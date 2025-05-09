@@ -18,7 +18,7 @@ global.games = {}; // or pass games to modules
 myIo(io);
 
 console.log(`Server listening on port ${config.port}`);
-server.listen(config.port);
+// server.listen(config.port);
 
 const Handlebars = handlebars.create({
   extname: '.html',
