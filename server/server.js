@@ -1,8 +1,8 @@
-const http = require('http'),
-      path = require('path'),
-      express = require('express'),
-      handlebars = require('express-handlebars'),
-      socket = require('socket.io');
+import http from 'http';
+import path from 'path';
+import express from 'express';
+import handlebars from 'express-handlebars';
+import socket from 'socket.io';
 
 const config = require('../config');
 
